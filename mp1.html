@@ -1,0 +1,62 @@
+<!DOCTYPE HTML> 
+<html lang="en"> 
+<head>
+<title>CS418MP1</title>
+<meta charset="utf-8"> 
+</head>
+
+
+
+<script id="shader-vs" type="x-shader/x-vertex">
+   attribute vec3 aVertexPosition;
+   attribute vec4 aVertexColor;
+
+    uniform mat4 uMVMatrix;
+     uniform mat4 uPMatrix;
+    varying vec4 vColor;
+
+    void main(void) {
+        gl_Position =  uPMatrix*uMVMatrix*vec4(aVertexPosition, 1.0);
+        vColor = aVertexColor;
+    }
+</script>
+
+<script id="shader-fs" type="x-shader/x-fragment">
+precision mediump float;
+varying vec4 vColor;
+void main(void) {
+        gl_FragColor = vColor;
+ }
+</script>
+
+<script src="gl-matrix-min.js"></script> 
+<script type="text/javascript" src="webgl-utils.js"></script>
+ <script src="mp1.js"></script>  
+<body onload="startup();">
+  <h1>CS418 Mp1</h1>
+  <p><b>huixu<b></p>
+  <p><b>NetID:huixu5<b></p>
+  <embed src="ilikeshower.mp3" autostart="true" loop="true"
+width="2" height="0">
+</embed>
+<noembed>
+<bgsound src="ilikeshower.mp3" loop="infinite">
+</noembed>
+    <form id="input_form">
+        <fieldset>
+        <legend><b>Visualization Parameters</b></legend>
+         Wireframe Version
+         <input type="radio" name="wireframe triangles" id="turnon" value="turnon"> Turn on
+         <input type="radio" name="wireframe triangles" id="turnon" value="turnff"> Turn off<br>
+         
+        </fieldset>
+        </form>
+
+
+  <canvas id="myGLCanvas" width="500" height="500"></canvas>
+  
+<iframe frameborder="0" scrolling="no" style="border: 0px; display: none; background-color: transparent;"></iframe><div id="GOOGLE_INPUT_CHEXT_FLAG" input="null" input_stat="{&quot;tlang&quot;:true,&quot;tsbc&quot;:true,&quot;pun&quot;:true,&quot;mk&quot;:false,&quot;ss&quot;:true}" style="display: none;"></div></body></html>
+
+
+
+
